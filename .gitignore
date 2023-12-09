@@ -1,0 +1,48 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+project/dist
+project/tmp
+project/out-tsc
+project/cbo-build/function-logging/temp
+# Only exists if Bazel was run
+project/bazel-out
+project/project/.angular/cache
+project/.angular/cache
+
+# dependencies
+project/node_modules
+project/package-lock.json
+
+# profiling files
+project/chrome-profiler-events*.json
+project/speed-measure-plugin*.json
+
+# IDEs and editors
+project/.idea
+project/.project
+project/.classpath
+project/.c9/
+project/.settings/
+
+# IDE - VSCode
+project/.vscode/*
+project/!.vscode/settings.json
+project/!.vscode/tasks.json
+project/!.vscode/launch.json
+project/!.vscode/extensions.json
+project/.history/*
+
+# misc
+project/.sass-cache
+project/.connect.lock
+project/coverage
+project/libpeerconnection.log
+project/npm-debug.log
+project/yarn-error.log
+project/testem.log
+project/typings
+
+# System Files
+project/.DS_Store
+project/Thumbs.db
