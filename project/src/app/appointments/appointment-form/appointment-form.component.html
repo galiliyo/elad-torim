@@ -1,0 +1,73 @@
+<form (submit)="submitForm()" [formGroup]="appointmentForm">
+  <div class="header-container">
+    <h4>{{ contextualStrings.windowTitle }}</h4>
+  </div>
+  <div class="flex-col">
+    <mat-form-field>
+      <mat-label>רופא</mat-label>
+      <mat-select formControlName="doctor">
+        <mat-option
+          *ngFor="let doctor of doctorsService.doctors$ | async"
+          [value]="doctor.id"
+        >
+          {{ doctor.firstName }} {{ doctor.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>תאריך</mat-label>
+      <input
+        [matDatepicker]="picker"
+        [min]="todayDate"
+        formControlName="date"
+        matInput
+      />
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>שעה</mat-label>
+      <mat-select formControlName="time">
+        <mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot">
+          {{ timeSlot }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>הערות</mat-label>
+      <textarea
+        #autosize="cdkTextareaAutosize"
+        [maxlength]="maxCharCount"
+        cdkAutosizeMaxRows="3"
+        cdkAutosizeMinRows="1"
+        cdkTextareaAutosize
+        formControlName="comments"
+        matInput
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <div class="flex-row justify-between controls">
+    <button (click)="resetForm()" mat-button type="button">איפוס</button>
+    <div class="flex-row controls">
+      <button
+        (click)="onCancelClick()"
+        *ngIf="isEditMode"
+        color="primary"
+        mat-stroked-button
+      >
+        ביטול
+      </button>
+      <button
+        [disabled]="!appointmentForm.valid"
+        color="primary"
+        mat-raised-button
+        type="submit"
+      >
+        {{ contextualStrings.submitBtnLabel }}
+      </button>
+    </div>
+  </div>
+</form>

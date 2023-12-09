@@ -1,0 +1,83 @@
+<mat-card *ngIf="!isEditMode; else editForm">
+  <div class="flex-row justify-end top-controls">
+    <button
+      (click)="editModeOn()"
+      [disabled]="isEditMode"
+      aria-label="Edit icon button"
+      color="primary"
+      mat-icon-button
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      (click)="deleteAppointment()"
+      aria-label="Delete icon button"
+      color="primary"
+      mat-icon-button
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <mat-card-content>
+    <div class="flex-col content-container">
+      <div class="flex-row">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Doctor icon"
+          class="material-icons color_primary icon-display"
+          fontIcon="account_box"
+        ></mat-icon>
+        <div class="flex-row doc-name">
+          <div>דר'</div>
+          <span>&nbsp;</span>
+          <div>{{ doctorName | titlecase }}</div>
+        </div>
+      </div>
+      <div class="flex-row align-top">
+        <div class="flex-row flex-2">
+          <div class="">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Calendar icon"
+              class="material-icons color_primary icon-display"
+              fontIcon="calendar_today"
+            ></mat-icon>
+          </div>
+          <div class="flex-col">
+            <div class="flex-1 date-time">
+              {{ appointment.date | date: "dd/MM/yyyy" }}
+            </div>
+            <div class="flex-1">
+              {{ appointment.date | date: "hh:mm" }}
+            </div>
+          </div>
+        </div>
+        <div class="flex-row flex-3 align-top">
+          <div class="date-time">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Notes icon"
+              class="material-icons color_primary icon-display"
+              fontIcon="notes"
+            ></mat-icon>
+          </div>
+          <div class="flex-col info">
+            {{ appointment.info }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<ng-template #editForm>
+  <mat-card>
+    <div class="edit-form-container">
+      <app-appointment-form
+        (onCancel)="onCancel()"
+        [appointment]="appointment"
+        [isEditMode]="isEditMode"
+      ></app-appointment-form>
+    </div>
+  </mat-card>
+</ng-template>

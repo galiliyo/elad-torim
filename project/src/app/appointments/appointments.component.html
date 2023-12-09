@@ -1,0 +1,15 @@
+<div class="all-page">
+  <header>
+    <app-header></app-header>
+  </header>
+  <div class="main-content">
+    <div class="side-menu">
+      <app-side-menu></app-side-menu>
+    </div>
+    <div class="appointments-list-container">
+      <app-appointments-list
+        [appointments$]="sortedAppointments$"
+      ></app-appointments-list>
+    </div>
+  </div>
+</div>

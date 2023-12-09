@@ -1,0 +1,18 @@
+.header-container {
+  margin-bottom: 2rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  height: 8rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  resize: vertical;
+}
+
+.controls {
+  gap: 1rem;
+}

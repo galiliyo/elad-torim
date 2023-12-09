@@ -1,0 +1,38 @@
+<div class="page-container flex-col">
+  <div class="header-container flex-row justify-between">
+    <h4>התורים שלי</h4>
+    <div class="dropdown-container">
+      <mat-select
+        (selectionChange)="selectDoctor($event)"
+        id="doctor-dropdown"
+        placeholder="כל הרופאים"
+      >
+        <mat-option value="-1">כל הרופאים</mat-option>
+        <mat-option
+          *ngFor="let doctor of doctorsService.doctors$ | async"
+          [value]="doctor.id"
+          >{{ doctor.firstName }} {{ doctor.lastName }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="flex-col list-container">
+    <ng-container
+      *ngIf="filteredAppointments$ | async as appointments; else loading"
+    >
+      <ng-container *ngIf="appointments.length > 0; else empty">
+        <div>
+          <span>{{ appointments.length }}</span
+          ><span>&nbsp;תורים נמצאו</span>
+        </div>
+        <app-appointment-card
+          *ngFor="let appointment of appointments; trackBy: trackByFn"
+          [appointment]="appointment"
+        ></app-appointment-card></ng-container
+    ></ng-container>
+  </div>
+  <ng-template #loading><mat-spinner></mat-spinner></ng-template>
+  <ng-template #empty>
+    <h5>אין תורים</h5>
+  </ng-template>
+</div>

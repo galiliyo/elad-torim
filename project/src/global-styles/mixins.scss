@@ -1,0 +1,7 @@
+@mixin flex-classes($start: 1, $end: 5) {
+  @for $i from $start through $end {
+    .flex-#{$i} {
+      flex: $i;
+    }
+  }
+}

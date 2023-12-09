@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+}
+
+.btn {
+  background: rgb(40, 85, 210);
+  border: none;
+  color: white;
+  border-radius: 0.2rem;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  transition: all 0.15s;
+  &:hover {
+    background: darken(rgb(40, 85, 210), 10%);
+  }
+  &:active {
+    background: darken(rgb(40, 85, 210), 20%);
+  }
+  &:disabled {
+    background: rgb(200, 200, 200);
+    color: rgb(100, 100, 100);
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,39 @@
+<div class="login-content">
+  <div class="login-box">
+    <!--      this is a reusable component I made-->
+    <app-card>
+      <form [formGroup]="login">
+        <!--     also this is a reusable component I made-->
+        <app-stack [direction]="'col'">
+          <div class="input-section">
+            <mat-form-field>
+              <mat-label>שם משתמש</mat-label>
+              <input
+                formControlName="userName"
+                id="userName"
+                matInput
+                type="text"
+              />
+              <mat-error>
+                <!--                a custom error message component-->
+                <app-input-error
+                  [errors]="login.get('userName')?.errors"
+                  [showErrors]="showUserNameErrors"
+                ></app-input-error
+              ></mat-error>
+            </mat-form-field>
+          </div>
+          <!--a custom reusable button-->
+          <app-button
+            (click)="loginUser()"
+            [disabled]="!login.valid"
+            [style]="{ width: '100%' }"
+            color="primary"
+            type="primary"
+            >חיפוש תור</app-button
+          >
+        </app-stack>
+      </form>
+    </app-card>
+  </div>
+</div>

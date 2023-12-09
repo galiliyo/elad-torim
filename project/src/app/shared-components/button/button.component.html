@@ -1,0 +1,11 @@
+<button
+  (click)="onClick()"
+  (mouseenter)="onHover(true)"
+  (mouseleave)="onHover(false)"
+  [disabled]="disabled"
+  [ngClass]="['btn', typeClass, colorClass]"
+  [ngStyle]="style"
+  type="button"
+>
+  <ng-content></ng-content>
+</button>

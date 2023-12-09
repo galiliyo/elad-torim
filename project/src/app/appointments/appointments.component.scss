@@ -1,0 +1,27 @@
+@import "../../assets/css/structure";
+
+.all-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  header {
+    height: $headerHeight;
+    margin: 0;
+    padding: 0;
+  }
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    .side-menu {
+      width: 400px;
+      border-left: 1px solid #c5ceeb;
+    }
+    .appointments-list-container {
+      flex-grow: 1;
+    }
+  }
+}

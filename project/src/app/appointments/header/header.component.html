@@ -1,0 +1,18 @@
+<div class="header-container">
+  <ng-container *ngIf="userService.userSession$ | async as userSession">
+    <app-stack direction="row">
+      <div class="logo-container"></div>
+      <div class="flex-row">
+        שלום
+        <div (click)="logout()" class="userName" tabIndex="{0}">
+          {{ userSession.user.firstName | titlecase }}
+          {{ userSession.user.lastName | titlecase }}
+        </div>
+      </div>
+    </app-stack>
+    <div class="secondary">
+      <span>זמן כניסה: </span>
+      <strong>{{ userSession.loginTime | date: "MMM dd, hh:mm" }}</strong>
+    </div>
+  </ng-container>
+</div>

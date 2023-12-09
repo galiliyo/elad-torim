@@ -1,0 +1,174 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ES-TEST-primary: mat.define-palette(mat.$indigo-palette);
+$ES-TEST-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$ES-TEST-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ES-TEST-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $ES-TEST-primary,
+      accent: $ES-TEST-accent,
+      warn: $ES-TEST-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($ES-TEST-theme);
+
+@import "./css.reset";
+@import "./variables";
+@import "mixins";
+
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  font-family: "Arimo", sans-serif;
+  background-color: aliceblue;
+  color: $text-color;
+}
+
+// controls
+
+//input {
+//  height: 2rem;
+//  width: 100%;
+//  background-color: white;
+//  border: 1px solid #ccc;
+//  border-radius: 0.25rem;
+//  padding: 0 0.5rem;
+//  margin-bottom: 0.5rem;
+//  &.invalid {
+//    border: 1px solid $danger-color;
+//  }
+//}
+//label {
+//  display: inline-block;
+//  margin: 0.5rem;
+//}
+
+// Typography
+h1 {
+  font-size: 2.48rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.07rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.72rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.44rem;
+  margin-bottom: 1rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+strong {
+  font-weight: 600;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.align-top {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+@include flex-classes; // makes classes like flex-1, flex-2, etc.
+
+.bored {
+  border: 1px solid red;
+}
+.no-break {
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.material-icons.color_primary {
+  color: $primary-color;
+}
+.material-icons.color_white {
+  color: #ffffff;
+}
+.material-icons.color_danger {
+  color: $danger-color;
+}
+
+.material-icons.icon-display {
+  transform: scale(1.4);
+  width: 1.8rem;
+  text-align: right;
+  margin: 0 1rem;
+}

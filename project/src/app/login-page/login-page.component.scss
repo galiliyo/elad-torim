@@ -1,0 +1,24 @@
+.login-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  .login-box {
+    width: 20rem;
+    margin-bottom: 10rem;
+
+    .login-header {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .input-section {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      height: 5rem;
+      input {
+        direction: ltr;
+      }
+    }
+  }
+}
